@@ -1,0 +1,150 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "IOTA Wiki",
+  "colors": {
+    "primary": "#0D9373",
+    "light": "#55D799",
+    "dark": "#0D9373"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": [
+    {
+      "group": "Get Started",
+      "pages": [
+        "/docs/get-started/faq",
+        "/docs/get-started/research-papers",
+        {
+          "group": "Introduction",
+          "pages": [
+            "/docs/get-started/introduction/introduction",
+            "/docs/get-started/introduction/iota-token/iota-token"
+          ]
+        },
+        {
+          "group": "Shimmer",
+          "pages": [
+            "/docs/get-started/introduction/shimmer/introduction/introduction",
+            "/docs/get-started/introduction/shimmer/shimmer-token/shimmer-token"
+          ]
+        }
+      ]
+    },
+
+    {
+      "group": "Programs",
+      "pages": [
+        "/docs/get-started/programs/community-treasury",
+        "/docs/get-started/programs/touchpoint"
+      ]
+    },
+    {
+      "group": "Community",
+      "pages": [
+        "/docs/get-started/the-community/community-links",
+        "/docs/get-started/the-community/discord",
+        "/docs/get-started/the-community/how-to-support",
+        "/docs/get-started/the-community/social-media",
+        "/docs/get-started/the-community/x-teams"
+      ]
+    },
+
+    {
+      "group": "Tools",
+      "pages": [
+        "/docs/get-started/tools/legacy-migration-tool/legacy-migration-tool",
+        "/docs/get-started/tools/shimmer-bridge"
+      ]
+    },
+    {
+      "group": "Wallets",
+      "pages": [
+        "/docs/get-started/wallets/bloom",
+        "/docs/get-started/wallets/firefly"
+      ]
+    },
+    {
+      "group": "Governance",
+      "pages": [
+        "/docs/learn/governance/firefly-governance-guide",
+        "/docs/learn/governance/governance-intro",
+        "/docs/learn/governance/governance-scope",
+        "/docs/learn/governance/governance-tech",
+        "/docs/learn/governance/shimmer-community-grant-committee",
+        "/docs/learn/governance/the-shimmer-governance-framework"
+      ]
+    },
+    {
+      "group": "Protocols",
+      "pages": [
+        "/docs/learn/protocols/coordinator",
+        "/docs/learn/protocols/introduction",
+        {
+          "group": "IOTA 2.0",
+          "pages": [
+            "/docs/learn/protocols/iota2.0/introduction-to-digital-autonomy",
+            {
+              "group": "Core Concepts",
+              "pages": [
+                "/docs/learn/protocols/iota2.0/core-concepts/communication-layer",
+                "/docs/learn/protocols/iota2.0/core-concepts/data-flow",
+                "/docs/learn/protocols/iota2.0/core-concepts/data-structures",
+                "/docs/learn/protocols/iota2.0/core-concepts/mana-calculator",
+                "/docs/learn/protocols/iota2.0/core-concepts/mana",
+                "/docs/learn/protocols/iota2.0/core-concepts/validators",
+                {
+                  "group": "Consensus",
+                  "pages": [
+                    "/docs/learn/protocols/iota2.0/core-concepts/consensus/chain-switching-rule",
+                    "/docs/learn/protocols/iota2.0/core-concepts/consensus/consensus-flags",
+                    "/docs/learn/protocols/iota2.0/core-concepts/consensus/introduction",
+                    "/docs/learn/protocols/iota2.0/core-concepts/consensus/preliminaries",
+                    "/docs/learn/protocols/iota2.0/core-concepts/consensus/relevant-algorithms",
+                    "/docs/learn/protocols/iota2.0/core-concepts/consensus/tip-selection-algorithm"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "group": "Stardust",
+          "pages": [
+            "/docs/learn/protocols/stardust/introduction",
+            "/docs/learn/protocols/stardust/tips",
+            {
+              "group": "Core Concepts",
+              "pages": [
+                "/docs/learn/protocols/stardust/core-concepts/multi-asset-ledger",
+                "/docs/learn/protocols/stardust/core-concepts/output-features",
+                "/docs/learn/protocols/stardust/core-concepts/output-unlock-conditions",
+                "/docs/learn/protocols/stardust/core-concepts/storage-deposit"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Smart Contracts",
+      "pages": [
+        "/docs/learn/smart-contracts/accounts-addresses-and-fees",
+        "/docs/learn/smart-contracts/chain-owners-validators-and-access-nodes",
+        "/docs/learn/smart-contracts/consensus",
+        "/docs/learn/smart-contracts/introduction",
+        "/docs/learn/smart-contracts/protocol-overview",
+        "/docs/learn/smart-contracts/smart-contract-execution",
+        "/docs/learn/smart-contracts/state-management-and-anchoring"
+      ]
+    }
+  ],
+  "tabs": [
+    {
+      "name": "Get Started",
+      "url": "/docs/get-started/"
+    },
+    {
+      "name": "Learn",
+      "url": "/docs/learn/"
+    }
+  ]
+}

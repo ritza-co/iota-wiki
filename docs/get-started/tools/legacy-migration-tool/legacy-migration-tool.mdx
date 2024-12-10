@@ -1,0 +1,186 @@
+import { ThemedImage } from "/snippets/ThemedImage.mdx";
+
+# IOTA Legacy Migration Tool
+
+<Note>
+The [IOTA Legacy Migration Tool](https://github.com/iotaledger/legacy-migration-tool/releases) is a standalone app to help you migrate your tokens from the legacy IOTA network to the current [IOTA Mainnet](/build/networks-endpoints/#iota) running the Stardust protocol.
+The new tool allows users to migrate from [an 81-character seed](#restore-a-text-backup), [a Trinity seed vault file](#restore-a-file-backup), or a [Ledger device](#users-with-ledger-devices).
+
+After successful migration, you must then use a trusted wallet, like [Firefly](../wallets/firefly.md), [Bloom](../wallets/bloom.md), or [TanglePay](https://tanglepay.com/), and import your new mnemonic, Stronghold, or Ledger device.
+
+</Note>
+
+The IOTA Legacy Migration Tool is a standalone app, not a wallet. When you enter your 81-character seed into the tool, it generates a new mnemonic and provides a Stronghold file. These are not tied to a specific wallet, giving you the flexibility to use them with various wallets, such as [Firefly](../wallets/firefly.md), [Bloom](../wallets/bloom.md), [TanglePay](https://tanglepay.com/), or any wallet of your choice.
+
+The migration period started on 21 February 2024. The IOTA Foundation will regularly review the tool's demand before deciding on its future availability. Therefore, to ensure a smooth transition to the Stardust network, you should start your migration in a timely manner since other forms of migration may be costly and less convenient.
+
+## Migration Process Overview
+
+<Note>
+  If you have lots of small amounts of `IOTA >1mil spread across lots of
+  addresses, it may not be possible to migrate these small amounts if their
+  total is less than the minimum [required storage deposit on the Stardust
+  network](/learn/protocols/stardust/core-concepts/storage-deposit/).
+</Note>
+
+### Enter Your Seed
+
+To initiate migration, you must enter your legacy seed in the [IOTA Legacy Migration Tool](https://github.com/iotaledger/legacy-migration-tool/releases) and follow the step-by-step instructions.
+
+### Get Your New Address
+
+After [entering your seed](#enter-your-seed) into the IOTA Legacy Migration Tool, a new mnemonic and Stronghold file will be created, and an Ed25519 address specific to the Stardust network will be generated for your tokens. **This address will be the receiving address for the migrated tokens, so you really must write down the mnemonic and save the Stronghold file**.
+
+#### Software Profiles vs Ledger Devices
+
+Most users will follow the same process when using the [IOTA Legacy Migration Tool](https://github.com/iotaledger/legacy-migration-tool/releases), regardless of whether they use software profiles or a Ledger device. Some users may follow a slightly different process, but even with these differences taken into account, the transition has been designed to be as simple as possible. There are built-in options to help you throughout the process, outlined below on a case-by-case basis.
+
+#### Users with Software Profiles
+
+1. [Input seed](#restore-a-text-backup) or `.kdbx` [file](#restore-a-file-backup) into the IOTA Legacy Migration Tool desktop app.
+2. [Check whether the balance is correct](#confirm-your-balance).
+3. [Create a new password](#create-a-stronghold-password) for your Stronghold file.
+4. The IOTA Legacy Migration Tool will [generate a mnemonic and Stronghold backup file](#back-up-your-wallet-with-a-mnemonic); you should save these in a safe place.
+5. [Initiate the automated migration process](#begin-the-migration).
+6. Export [Migration Log](#export-migration-log) and [Stronghold Backup](#export-stronghold-file).
+
+#### Users with Ledger Devices
+
+1. Connect your Ledger device to your computer.
+2. [Install both the IOTA Legacy App (0.5.8) and the new IOTA App v0.8.6](#check-for-the-required-ledger-apps) on your Ledger device using [Ledger Live](https://www.ledger.com/ledger-live).
+3. Close Ledger Live, open the new IOTA App on your Ledger device, and [generate a Stardust address](#generate-and-confirm-your-new-address).
+4. [Switch to the legacy Ledger App and verify the accuracy of your balance](#begin-migrating-your-tokens-on-the-legacy-app).
+5. [Initiate the automated migration process](#hit-begin-migration).
+
+## Migration Process Step-By-Step
+
+First, download the [IOTA Legacy Migration Tool](https://github.com/iotaledger/legacy-migration-tool/releases) (available on Windows, Mac, or Linux). You’ll be presented with three options to load your existing seed into the IOTA Legacy Migration Tool: importing a [text backup](#restore-a-text-backup), a [file backup](#restore-a-file-backup), or your [Ledger device backup](#users-with-ledger-devices).
+
+<ThemedImage
+  alt="Software Profile Migrate Funds Start"
+  sources={{
+    light: "/img/get-started/tools/legacy-migration-tool/light/Software-1.png",
+    dark: "/img/get-started/tools/legacy-migration-tool/dark/Software-1.png",
+  }}
+/>
+
+## Users with Software Profiles
+
+If you use a software profile, you need to restore a [backup file](#restore-a-file-backup) or a [text backup](#restore-a-text-backup).
+
+### Restore a File Backup
+
+Import a Trinity SeedVault file (with the extension `.kdbx`).
+
+### Restore a Text Backup
+
+If you select the text backup option, you’ll be prompted to enter your seed before continuing.
+
+<ThemedImage
+  alt="Enter your 81-character IOTA seed"
+  sources={{
+    light: "/img/get-started/tools/legacy-migration-tool/light/Software-2.png",
+    dark: "/img/get-started/tools/legacy-migration-tool/dark/Software-2.png",
+  }}
+/>
+
+### Confirm Your Balance
+
+Once you’ve entered your seed (or SeedVault), you can check if your balance is correct before beginning the migration. If it is not correct, hit “Check Again”.
+
+<Note>If the balance is zero, check whether you mistyped your seed.</Note>
+
+<ThemedImage
+  alt="Confirm your balance"
+  sources={{
+    light: "/img/get-started/tools/legacy-migration-tool/light/Software-3.png",
+    dark: "/img/get-started/tools/legacy-migration-tool/dark/Software-3.png",
+  }}
+/>
+
+### Create a Stronghold Password
+
+After [confirming your seed balance](#confirm-your-balance), you should create a password for your Stronghold backup file used for protecting your funds and restoring from backup. It’s important to back up your wallet to make sure you can always access your funds.
+
+<ThemedImage
+  alt="Create a Stronghold Password"
+  sources={{
+    light: "/img/get-started/tools/legacy-migration-tool/light/Software-4.png",
+    dark: "/img/get-started/tools/legacy-migration-tool/dark/Software-4.png",
+  }}
+/>
+
+### Back Up Your Wallet With a Mnemonic
+
+You can now begin the backup process. The first step is generating a 24-word recovery phrase (mnemonic) and the Stronghold backup file. The recovery phrase will help you retrieve your funds should you lose access to your wallet and other backups.
+
+<ThemedImage
+  alt="Back up your wallet"
+  sources={{
+    light: "/img/get-started/tools/legacy-migration-tool/light/Software-5.png",
+    dark: "/img/get-started/tools/legacy-migration-tool/dark/Software-5.png",
+  }}
+/>
+
+<Note>
+  It is recommended that you print the “Recovery Kit Template” to help you write
+  down your recovery phrase.
+</Note>
+
+#### Copy Your Mnemonic
+
+Copy the mnemonic words in their exact order. It is important that you keep a physical copy because digital files can fail.
+
+<ThemedImage
+  alt="Copy your mnemonic"
+  sources={{
+    light: "/img/get-started/tools/legacy-migration-tool/light/Software-6.png",
+    dark: "/img/get-started/tools/legacy-migration-tool/dark/Software-6.png",
+  }}
+/>
+
+#### Verify Your Mnemonic
+
+Next, verify your recovery phrase to ensure you [copied it correctly](#copy-your-mnemonic).
+
+<ThemedImage
+  alt="Verify your mnemonic"
+  sources={{
+    light: "/img/get-started/tools/legacy-migration-tool/light/Software-7.png",
+    dark: "/img/get-started/tools/legacy-migration-tool/dark/Software-7.png",
+  }}
+/>
+
+<Note>
+  Never store your mnemonic on any cloud platform or online! Write it down and
+  store it in a safe location.
+</Note>
+
+#### Save Your Stronghold Backup
+
+After verifying your mnemonic, the app will generate a Stronghold backup file with an encrypted wallet.
+
+<ThemedImage
+  alt="Save your Stronghold backup"
+  sources={{
+    light: "/img/get-started/tools/legacy-migration-tool/light/Software-8.png",
+    dark: "/img/get-started/tools/legacy-migration-tool/dark/Software-8.png",
+  }}
+/>
+
+<Note>
+  We recommend saving your Stronghold backup on a USB drive or other offline
+  storage medium.
+</Note>
+
+### Begin the Migration
+
+Now that your Stronghold backup file is saved, you can begin the migration to the Stardust network. Follow the on-screen instructions in the IOTA Legacy Migration Tool, which will guide you through the process.
+
+<ThemedImage
+  alt="Begin the migration"
+  sources={{
+    light: "/img/get-started/tools/legacy-migration-tool/light/Software-9.png",
+    dark: "/img/get-started/tools/legacy-migration-tool/dark/Software-9.png",
+  }}
+/>

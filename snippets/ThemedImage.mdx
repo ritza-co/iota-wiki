@@ -1,0 +1,9 @@
+export const ThemedImage = ({ alt, sources }) => {
+  if (typeof window === "undefined") {
+    return null; 
+  }
+
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+return <img src={isDarkMode ? sources.dark : sources.light} alt={alt} />;
+};
